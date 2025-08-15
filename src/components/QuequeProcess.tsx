@@ -8,8 +8,8 @@ const QuequeProcess = () => {
 
     return (
         <>
-            <div className="bg-transparent w-[400px] h-[500px] rounded-2xl border-2 border-green-400" >
-                <h1 className="text-3xl font-bold text-center text-green-700" >Procesos en ejecución</h1>
+            <div className="bg-transparent w-[400px] h-[500px] rounded-2xl border-3 border-violet-300" >
+                <h1 className="text-3xl font-bold text-center text-violet-300" >Lista de Procesos a ejecutar</h1>
                 <div style={{height: '470px', overflowY: 'auto', paddingRight: '8px'}}>
                     <AnimatePresence>
                         {procesos.length !== 0 ? (
@@ -31,7 +31,7 @@ const QuequeProcess = () => {
                                     </button>
                                 </motion.div>
                             ))
-                        ) : <motion.div className="text-center" initial={{opacity:0}} animate={{opacity:1}}>Actualmente no tienes procesos ejecutándose :(</motion.div>}
+                        ) : <motion.div className="flex items-center justify-center h-100 w-full text-center" initial={{opacity:0}} animate={{opacity:1}}>Lista vacia</motion.div>}
                     </AnimatePresence>
                 </div>
             </div>

@@ -5,7 +5,7 @@ export const Simulator = () => {
 
     return(
         <>
-        <h1>Empezandoooo ejecucion:</h1>
+        <h1 className="text-center border">Ejecutando:</h1>
         <BarraSimulatorProcess/>
         </>
     )
