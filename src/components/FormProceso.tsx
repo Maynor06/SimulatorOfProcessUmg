@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import '../Styles/FormPreceso.css'
-import { useProcesoContext } from '../Context/ProcesoContext';
+import '../styles/FormProceso.css'
+import { useProcesoContext } from '../context/ProcesoContext';
 
 const FormProceso = () => {
 

@@ -1,0 +1,45 @@
+.contain-form{
+    display: flex;
+    background-color: #F8F8FF;
+    flex-direction: column;
+    width: 550px;
+    text-align: center;
+    border-radius: 15px;
+    padding: 15px;
+    height: 400px;
+    gap: 1.5rem;
+}
+
+.contain-form h1{
+    font-size: 1.5rem;
+    font-weight: 600;
+}
+
+.formContain{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form input{
+    height: 50px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form button {
+    height: 40px;
+    background-color: #d7c8ff;
+    width: 150px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
