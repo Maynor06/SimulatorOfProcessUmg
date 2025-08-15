@@ -34,6 +34,13 @@ const FormProceso = () => {
             setShowModal(true);
             return;
         }
+
+         if (formData.MemoriaRequired >= 1024) {
+            setErrorMessage('La memoria requerida debe ser menor a 1024MB (1GB).');
+            setShowModal(true);
+            return;
+        }
+
         if (formData.Duration <= 0) {
             setErrorMessage('La duración debe ser mayor a 0.');
             setShowModal(true);
