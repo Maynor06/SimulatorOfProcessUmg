@@ -20,22 +20,29 @@ const FormProceso = () => {
         setFormData({ ...formData, [name]: valorParsed });
     };
 
+
+    //Codigo relacionado al nombre aleatorio
+    const [contador, setContador] = useState(1);
+
+    const generarNombreProceso = () => {
+        // Devuelve Task con número en formato 3 dígitos
+        return `Task${String(contador).padStart(4, "0")}`;
+    };
+
+
     const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
 
-        // Validación de campos nulos
-        if (!formData.NombreProceso.trim()) {
-            setErrorMessage('El nombre del proceso no puede estar vacío.');
-            setShowModal(true);
-            return;
-        }
+        // genera un nombre aleatorio, si el campo esta vacio
+        const nombreFinal = formData.NombreProceso.trim() || generarNombreProceso();
+
         if (formData.MemoriaRequired <= 0) {
             setErrorMessage('La memoria requerida debe ser mayor a 0.');
             setShowModal(true);
             return;
         }
 
-         if (formData.MemoriaRequired >= 1024) {
+        if (formData.MemoriaRequired >= 1024) {
             setErrorMessage('La memoria requerida debe ser menor a 1024MB (1GB).');
             setShowModal(true);
             return;
@@ -49,11 +56,19 @@ const FormProceso = () => {
 
         const newProceso = {
             PID: Date.now(),
-            ...formData
+            ...formData,
+            // si estaba vacío, se genera automáticamente
+            NombreProceso: nombreFinal 
         };
 
         agregarProceso(newProceso);
 
+        // Incrementa el contador
+        if (!formData.NombreProceso.trim()) {
+            setContador(contador + 1);
+        }
+
+        //Limpia los campos
         setFormData({
             NombreProceso: '',
             MemoriaRequired: 0,
