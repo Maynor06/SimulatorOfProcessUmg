@@ -113,7 +113,7 @@ const BarraSimulatorProcess = () => {
         <>
         <div className="flex gap-8 justify-center">
             <div className="bg-white p-4 rounded-xl shadow-xl w-[400px]">
-                <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "'Coiny', sans-serif" }}>Historial de procesos ejecutados</h2>
+                <h2 className="text-2xl mb-2" style={{ fontFamily: "'Coiny', sans-serif" }}>Historial de procesos ejecutados</h2>
                 <div className="py-4" style={{ height: '380px', overflowY: 'auto' }} >
                     <AnimatePresence>
                         {procesosEjecutados.length === 0 ? (
@@ -135,7 +135,7 @@ const BarraSimulatorProcess = () => {
             </div>
 
             <div className="bg-white p-4 rounded-xl shadow-xl w-[400px]">
-                <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "'Coiny', sans-serif" }}>Procesos ejecutándose</h2>
+                <h2 className="text-2xl mb-2" style={{ fontFamily: "'Coiny', sans-serif" }}>Procesos ejecutándose</h2>
                 {/* Barra dinámica de RAM */}
                 <div className="flex flex-col gap-0 mb-4" >
                     <div>RAM libre: <span className="font-mono">{ram} MB</span></div>
@@ -171,7 +171,7 @@ const BarraSimulatorProcess = () => {
                 </div>
             </div>
             <div className="bg-white p-4 rounded-xl shadow-xl w-[400px]">
-                <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "'Coiny', sans-serif" }}>Procesos en cola</h2>
+                <h2 className="text-2xl mb-2" style={{ fontFamily: "'Coiny', sans-serif" }}>Procesos en cola</h2>
                 <div className="py-4" style={{ height: '380px' }}>
                     <AnimatePresence>
                         {procesosPendientes.length === 0 ? (
