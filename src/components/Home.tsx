@@ -22,7 +22,7 @@ const Home = () => {
                         <div className="flex flex-col items-center">
                             <FormProceso />
                             <div className="h-8" />
-                            <button onClick={irASimulator} className="bg-[#d7c8ff] transition-all duration-[2000ms] hover:scale-110 hover:bg-blue-200 h-12 w-56 rounded-2xl text-xl font-medium " style={{ fontFamily: "'Rubik 80s Fade', system-ui" }}>
+                            <button onClick={irASimulator} className="bg-[#d7c8ff] transition-all duration-[2000ms] hover:scale-110 hover:bg-blue-200 h-12 w-56 rounded-2xl text-xl font-semibold " style={{ fontFamily: "'Rubik 80s Fade', system-ui" }}>
                                 Iniciar Simulación
                             </button>
                         </div>

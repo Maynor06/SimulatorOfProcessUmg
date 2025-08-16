@@ -49,7 +49,13 @@ const FormProceso = () => {
         }
 
         if (formData.Duration <= 0) {
-            setErrorMessage('La duración debe ser mayor a 0.');
+            setErrorMessage('La duración debe ser mayor a 0 segundos.');
+            setShowModal(true);
+            return;
+        }
+
+        if (formData.Duration > 60) {
+            setErrorMessage('La duración debe ser menor a 60 segundos.');
             setShowModal(true);
             return;
         }
@@ -112,7 +118,7 @@ const FormProceso = () => {
                         onChange={handleChange}
                         placeholder="Duración (s)"
                     />
-                    <button type="submit" style={{ fontFamily: "'Rubik 80s Fade', system-ui" }}>Crear Proceso</button>
+                    <button className="font-semibold" type="submit" style={{ fontFamily: "'Rubik 80s Fade', system-ui" }}>Crear Proceso</button>
                 </form>
             </div>
 
