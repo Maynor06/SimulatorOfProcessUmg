@@ -118,7 +118,7 @@ const FormProceso = () => {
                         onChange={handleChange}
                         placeholder="Duración (s)"
                     />
-                    <button className="font-semibold" type="submit" style={{ fontFamily: "'Rubik 80s Fade', system-ui" }}>Crear Proceso</button>
+                    <button type="submit" style={{ fontFamily: "'Coiny', system-ui" }}>Crear Proceso</button>
                 </form>
             </div>
 

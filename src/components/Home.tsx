@@ -2,12 +2,23 @@ import { useNavigate } from "react-router";
 import FormProceso from "./FormProceso";
 import QuequeProcess from "./QuequeProcess";
 import logo from "../assets/Logo(1).png";
+import { useProcesoContext } from "../context/ProcesoContext";
+import { useState } from "react";
 
 const Home = () => {
 
     const navigate = useNavigate()
+    const [showModal, setShowModal] = useState(false);
+    const [errorMessage, setErrorMessage] = useState("")
+
+    const { procesos } = useProcesoContext();
 
     const irASimulator = () => {
+        if(procesos.length === 0){
+            setErrorMessage('No tienes procesos creados :´(');
+            setShowModal(true);
+            return;               
+        }
         navigate("/simulador")
     }
 
@@ -22,7 +33,7 @@ const Home = () => {
                         <div className="flex flex-col items-center">
                             <FormProceso />
                             <div className="h-8" />
-                            <button onClick={irASimulator} className="bg-[#d7c8ff] transition-all duration-[2000ms] hover:scale-110 hover:bg-blue-200 h-12 w-56 rounded-2xl text-xl font-semibold " style={{ fontFamily: "'Rubik 80s Fade', system-ui" }}>
+                            <button onClick={irASimulator} className="bg-[#d7c8ff] transition-all duration-[2000ms] hover:scale-110 hover:bg-blue-200 h-12 w-56 rounded-2xl text-xl " style={{ fontFamily: "'Coiny', system-ui" }}>
                                 Iniciar Simulación
                             </button>
                         </div>
@@ -31,6 +42,33 @@ const Home = () => {
 
                 </div>
             </div>
+            {showModal && (
+                <div className="modal-overlay">
+                    <div className="modal">
+                        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                fill="none"
+                                viewBox="0 0 24 24"
+                                strokeWidth={2}
+                                stroke="red"
+                                width="50"
+                                height="50"
+                            >
+                                <path
+                                    strokeLinecap="round"
+                                    strokeLinejoin="round"
+                                    d="M12 9v2m0 4h.01M21 12a9 9 0 11-18 0 9 
+                           9 0 0118 0z"
+                                />
+                            </svg>
+                            {/* <h2 style={{ color: 'red', margin: 0 }}>Error</h2>*/}
+                        </div>
+                        <p style={{ marginTop: '10px' }}>{errorMessage}</p>
+                        <button onClick={() => setShowModal(false)}>Cerrar</button>
+                    </div>
+                </div>
+            )}
         </>
     );
 }

@@ -26,7 +26,7 @@ const QuequeProcess = () => {
                                     <h2 className="font-bold text-2xl " >{proceso.NombreProceso}</h2>
                                     <p className="text-[17px] " >Memoria requerida: {proceso.MemoriaRequired} Mb</p>
                                     <p>Duracion:  {proceso.Duration}s </p>
-                                    <button className="mt-2 px-4 py-1 bg-red-500 text-white rounded" style={{fontFamily: "'Rubik 80s Fade', system-ui"}}onClick={() => finalizarProceso(proceso.PID)}>
+                                    <button className="mt-2 px-4 py-1 bg-red-500 text-white rounded" onClick={() => finalizarProceso(proceso.PID)}>
                                         Eliminar
                                     </button>
                                 </motion.div>

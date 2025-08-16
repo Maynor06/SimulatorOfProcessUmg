@@ -1,7 +1,10 @@
+import { useNavigate } from "react-router";
 import BarraSimulatorProcess from "./BarraSimulatorProcess"
 
 
 export const Simulator = () => {
+
+    const nav = useNavigate();
 
     return(
         <div style={{
@@ -16,7 +19,7 @@ export const Simulator = () => {
             </nav>
             <div className="h-8" />
             <BarraSimulatorProcess/>
-            <button onClick={() => window.location.href = '/'} className="bg-violet-300 h-10 w-35 rounded-2xl absolute top-5 left-5 font-semibold" style={{ fontFamily: "'Rubik 80s Fade', system-ui" }}>
+            <button onClick={() => nav("/") } className="bg-violet-300 h-10 w-35 rounded-2xl absolute top-5 left-5 font-semibold" style={{ fontFamily: "'Rubik 80s Fade', system-ui" }}>
                 Regresar</button>
         </div>
     )
