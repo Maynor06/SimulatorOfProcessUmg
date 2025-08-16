@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router";
 import FormProceso from "./FormProceso";
 import QuequeProcess from "./QuequeProcess";
-import logo from "../assets/logo(1).png";
+import logo from "../assets/Logo(1).png";
 
 const Home = () => {
 
