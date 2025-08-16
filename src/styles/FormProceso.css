@@ -1,0 +1,80 @@
+.contain-form{
+    display: flex;
+    background-color: #F8F8FF;
+    flex-direction: column;
+    width: 500px;
+    text-align: center;
+    border-radius: 15px;
+    padding: 15px;
+    height: min-content;
+    gap: 1.5rem;
+}
+
+.contain-form h1{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
+
+.formContain{
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.form input{
+    height: 50px;
+    background-color: white;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.form button {
+    height: 40px;
+    background-color: #d7c8ff;
+    width: 150px;
+    border-radius: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.modal {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centra todo horizontalmente */
+    text-align: center;  /* Asegura que el texto esté centrado */
+}
+
+.modal button {
+    margin-top: 15px;
+    padding: 8px 12px;
+    background: #ff4d4d;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
