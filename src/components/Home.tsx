@@ -24,8 +24,8 @@ const Home = () => {
                         <QuequeProcess />
                     </div>
                     <div className="flex justify-center " >
-                        <button onClick={irASimulator} className="bg-blue-200 h-10 w-35 rounded-2xl font-bold" style= {{marginBottom: '20px'}}>
-                            Iniciar Proceso
+                        <button onClick={irASimulator} className="bg-[#d7c8ff] transition-all duration-[2000ms] hover:scale-110 hover:bg-blue-200 h-12 w-56 rounded-2xl text-xl font-medium ">
+                            Iniciar Simulación
                         </button>
                     </div>
 

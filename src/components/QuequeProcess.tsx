@@ -8,8 +8,8 @@ const QuequeProcess = () => {
 
     return (
         <>
-            <div className="bg-transparent w-[400px] h-[500px] rounded-2xl border-3 border-violet-300" >
-                <h1 className="text-3xl font-bold text-center text-violet-300" >Lista de Procesos a ejecutar</h1>
+            <div className="bg-transparent w-[400px] rounded-2xl border-3 py-8 border-none" >
+                <h1 className="text-3xl font-bold text-center black border-b-2 w-fit ml-auto mr-auto " >Cola de procesos</h1>
                 <div style={{height: '470px', overflowY: 'auto', paddingRight: '8px'}}>
                     <AnimatePresence>
                         {procesos.length !== 0 ? (
