@@ -136,6 +136,7 @@ const BarraSimulatorProcess = () => {
 
             <div className="bg-white p-4 rounded-xl shadow-xl w-[400px]">
                 <h2 className="text-xl font-bold mb-2">Procesos ejecutándose</h2>
+                <h2  >Memoria ram disponible: {ram}</h2>
                 <div className="py-4" style={{ height: '380px' }}>
                     <AnimatePresence>
                         {procesosCorriendo.length === 0 ? (

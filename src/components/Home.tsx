@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router";
 import FormProceso from "./FormProceso";
 import QuequeProcess from "./QuequeProcess";
-import { Simulator } from "./Simulator";
 import logo from "../assets/logo(1).png";
 
 const Home = () => {

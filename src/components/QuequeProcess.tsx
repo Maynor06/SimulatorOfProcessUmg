@@ -13,7 +13,7 @@ const QuequeProcess = () => {
                 <div style={{height: '470px', overflowY: 'auto', paddingRight: '8px'}}>
                     <AnimatePresence>
                         {procesos.length !== 0 ? (
-                            procesos.map((proceso, index) => (
+                            procesos.map((proceso) => (
                                 <motion.div
                                     key={proceso.PID}
                                     initial={{ opacity: 0, y: 50 }}
