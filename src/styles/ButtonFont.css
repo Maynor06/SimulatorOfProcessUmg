@@ -1,0 +1,5 @@
+/* Fuente personalizada solo para botones */
+.button-font {
+  font-family: 'Montserrat', 'Arial', sans-serif;
+  letter-spacing: 1px;
+}
