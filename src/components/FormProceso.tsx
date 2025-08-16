@@ -67,7 +67,7 @@ const FormProceso = () => {
 
     return (
         <div className="contain-form">
-            <h1 className='font-bold text-2xl'>Crea un nuevo Proceso</h1>
+            <h1 className='font-bold text-2xl'style= {{fontFamily: "'Coiny', system-ui"}}>Crea un nuevo Proceso</h1>
             <div className='formContain'>
 
                 <form className="form" onSubmit={handleSubmit}>
@@ -97,7 +97,7 @@ const FormProceso = () => {
                         onChange={handleChange}
                         placeholder="Duración (s)"
                     />
-                    <button type="submit">Crear Proceso</button>
+                    <button type="submit" style={{ fontFamily: "'Rubik 80s Fade', system-ui" }}>Crear Proceso</button>
                 </form>
             </div>
 
