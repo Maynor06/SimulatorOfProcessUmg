@@ -135,6 +135,29 @@ const BarraSimulatorProcess = () => {
                                     <div className="ml-4 text-red-600">
                                         <strong>Tiempo restante:</strong> {tiemposRestantes.get(proceso.PID) ?? proceso.Duration}s
                                     </div>
+
+                                    {/* Barra de progreso debajo del tiempo restante */}
+<div style={{
+  width: "100%",
+  height: "10px",
+  backgroundColor: "#ddd",
+  borderRadius: "5px",
+  marginTop: "5px",
+  overflow: "hidden"
+}}>
+  <div
+    style={{
+      width: `${Math.min(
+        ((proceso.Duration - (tiemposRestantes.get(proceso.PID) ?? proceso.Duration)) / proceso.Duration) * 100,
+        100
+      )}%`,
+      height: "100%",
+      backgroundColor: "green",
+      transition: "width 1s linear"
+    }}
+  ></div>
+</div>
+
                                     <div>
                                         {proceso.isRunning ? (
                                             <svg xmlns="http://www.w3.org/2000/svg" width={48} height={48} className="absolute top-10 left-[80%]" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" strokeDasharray={16} strokeDashoffset={16} strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 3c4.97 0 9 4.03 9 9"><animate fill="freeze" attributeName="stroke-dashoffset" dur="0.2s" values="16;0"></animate><animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate" values="0 12 12;360 12 12"></animateTransform></path></svg>
