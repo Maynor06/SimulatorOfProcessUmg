@@ -1,4 +1,4 @@
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import { useProcesoContext } from "../context/ProcesoContext";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -20,7 +20,6 @@ const BarraSimulatorProcess = () => {
     const [procesosEjecutados, setProcesosEjecutados] = useState<ProcesoCorriendo[]>([]);
     const [tiemposRestantes, setTiemposRestantes] = useState<Map<number, number>>(new Map());
 
-    const timersRef = useRef<Map<number, number>>(new Map());
 
     // === Actualiza colas (pendientes / corriendo) ===
     const actualizarColas = (procesosBase: ProcesoCorriendo[], ejecutados: ProcesoCorriendo[]) => {
