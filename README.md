@@ -1,71 +1,84 @@
-Descripción del Proyecto
+# ⚙️ Simulador de Procesos en Memoria  
 
-Este proyecto simula la gestión de procesos en un sistema operativo con memoria RAM limitada. Permite la creación, ejecución y gestión de procesos,   mostrando el estado de la memoria y los procesos en ejecución y en cola. El objetivo es modelar cómo un sistema operativo administra procesos que requieren memoria para ejecutarse, considerando restricciones de espacio y tiempos de ejecución.
+Este proyecto es un **simulador de gestión de procesos en memoria RAM limitada**, inspirado en cómo un sistema operativo administra recursos.  
+Permite **crear, ejecutar y gestionar procesos**, mostrando de forma visual el estado de la memoria, los procesos en ejecución y la cola de espera.  
 
-El simulador permite:
-- Crear procesos con atributos como PID, nombre, memoria requerida y duración.
-- Ejecutar múltiples procesos concurrentemente mientras haya memoria disponible.
-- Administrar la cola de espera cuando no hay memoria suficiente.
-- Liberar memoria automáticamente al finalizar un proceso.
-- Visualizar el estado actual de la RAM, los procesos en ejecución y en espera.
+El objetivo principal es **modelar la administración de memoria y procesos**, considerando tanto las restricciones de espacio como los tiempos de ejecución.  
 
-Tecnologías Implementadas
-- Lenguaje: TypeScript
-- Framework de Frontend: React
-- Herramienta de construcción: Vite.js
-- Estilos: Tailwind CSS
-- Animaciones: Framer Motion
-- Ruteo: React Router DOM
+---
 
-Instrucciones de instalación y uso
-1. Clonar repositorio
+## ✨ Funcionalidades  
 
+- ➕ **Crear procesos** con atributos: PID, nombre, memoria requerida y duración.  
+- ⚡ **Ejecutar múltiples procesos concurrentes** siempre que haya memoria disponible.  
+- ⏳ **Administrar la cola de espera** cuando la RAM no sea suficiente.  
+- 🗑️ **Liberar memoria automáticamente** al finalizar un proceso.  
+- 👀 **Visualizar en tiempo real**:  
+  - Estado actual de la RAM  
+  - Procesos en ejecución  
+  - Procesos en cola  
+
+---
+
+## 🚀 Tecnologías y Dependencias  
+
+- **Lenguaje:** TypeScript  
+- **Frontend:** React  
+- **Herramienta de construcción:** Vite.js  
+- **Estilos:** Tailwind CSS  
+- **Animaciones:** Framer Motion  
+- **Ruteo:** React Router DOM  
+
+---
+
+## ⚙️ Instalación y Uso  
+
+1️⃣ **Clonar el repositorio**  
+```bash
 git clone https://github.com/Maynor06/SimulatorOfProcessUmg
-
 cd SimulatorOfProcessUmg
-
-
-3. Iniciar Dependencias
-
-
+```
+2️⃣ Instalar Dependencias
+```bash
 npm install
+```
 
-
-5. Iniciar servidor de desarrollo
-
-
+3️⃣ Iniciar servidor de desarrollo
+```bash
 npm run dev
+```
+---
+
+## 🖼️ Vista Previa
+
+### Vista del simulador sin procesos creados  
+<img width="1882" height="963" alt="Vista inicial" src="https://github.com/user-attachments/assets/132578c3-7f96-4785-bff6-bf5d1a4ea743" />
+
+### Vista con procesos creados  
+<img width="1896" height="999" alt="Procesos creados" src="https://github.com/user-attachments/assets/98694248-2c73-43df-aada-78948d0614c8" />
+
+### Procesos en ejecución y en cola  
+<img width="1886" height="1005" alt="Procesos en ejecución" src="https://github.com/user-attachments/assets/65c671cd-aa78-43cc-b8e9-a2a02beff46f" />
+
+---
+
+## 🌐 Demo en Línea  
+
+➡️ [Abrir simulador](https://simuladordeprocesos.netlify.app/)  
+
+---
+
+## 👥 Integrantes del Equipo  
+<div style="display: flex; flex-direction: column; align-items: center;">
+    
+![Andersson Lopez](https://img.shields.io/badge/Andersson%20Lopez-1990--23--2823-blue?style=for-the-badge) <br/>
+![Jorge Tajín](https://img.shields.io/badge/Jorge%20Tajín-1990--23--689-green?style=for-the-badge) <br/>
+![Samuel González](https://img.shields.io/badge/Samuel%20González-1990--23--5806-orange?style=for-the-badge) <br/> 
+![Maynor Semeyá](https://img.shields.io/badge/Maynor%20Semeyá-1990--23--4556-purple?style=for-the-badge) <br/>
+![Richard Apén](https://img.shields.io/badge/Richard%20Apén-1990--23--2763-red?style=for-the-badge) 
+</div>
 
 
-7. Compilar para Producción
-
-
-npm run build
-
-
-Funcionalidades Principales
-- Creación de procesos con parámetros personalizados
-- Cola de procesos en espera cuando la RAM está llena
-- Ejecución concurrente en base a memoria disponible
-- Liberación automática de memoria al finalizar procesos
-- Visualización en tiempo real de:
-    - Procesos activos
-    - Procesos en cola
-    - Estado de la memoria RAM
- 
-
-Capturas de Pantalla
-- Vista del Simulador
-- Procesos en Ejecución y en Cola
-- Estado de la Memoria RAM
-
-
-Integrantes del Equipo
-- Andersson Lopez 1990-23-2823
-- Jorge Tajín 1990-23-689
-- Samuel González 1990-23-5806
-- Maynor Semeyá 1990-23-4556
-- Richard Apén 1990-23-2763
 
 
 
