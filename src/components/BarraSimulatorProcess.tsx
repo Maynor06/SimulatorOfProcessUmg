@@ -95,11 +95,11 @@ const BarraSimulatorProcess = () => {
         <div className="flex gap-8 justify-center">
             {/* === Historial de procesos ejecutados === */}
             <div className="bg-white p-4 rounded-xl shadow-xl w-[400px]">
-                <h2 className="text-xl font-bold mb-2">Historial de procesos ejecutados</h2>
-                <div className="py-4" style={{ height: '380px', overflowY: 'auto' }}>
+                <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "'Coiny', sans-serif" }}>Historial de procesos ejecutados</h2>
+                <div className="py-4" style={{ height: '380px', overflowY: 'auto' }} >
                     <AnimatePresence>
                         {procesosEjecutados.length === 0 ? (
-                            <motion.div className="text-gray-500 text-3xl text-center">No hay procesos ejecutados.</motion.div>
+                            <motion.div className="text-gray-300 text-sm text-center" style = {{fontFamily: "'Press Start 2P', system-ui"}}>No hay procesos ejecutados</motion.div>
                         ) : (
                             procesosEjecutados.map(proceso => (
                                 <motion.div key={proceso.PID} className="mb-3 p-3 rounded-lg shadow bg-yellow-100 relative">
@@ -119,12 +119,21 @@ const BarraSimulatorProcess = () => {
 
             {/* === Procesos ejecutándose === */}
             <div className="bg-white p-4 rounded-xl shadow-xl w-[400px]">
-                <h2 className="text-xl font-bold mb-2">Procesos ejecutándose</h2>
-                <h2  >Memoria ram disponible: {ram}</h2>
+                <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "'Coiny', sans-serif" }}>Procesos ejecutándose</h2>
+                {/* Barra dinámica de RAM */}
+                <div className="flex flex-col gap-0 mb-4" >
+                    <div>RAM libre: <span className="font-mono">{ram} MB</span></div>
+                    <div className="w-full h-6 bg-gray-200 rounded-full overflow-hidden">
+                        <div
+                            className="h-full bg-gradient-to-r from-blue-500 to-blue-300 transition-all duration-700"
+                            style={{ width: `${Math.round((ram / memoriaTotal) * 100)}%` }}
+                        ></div>
+                    </div>
+                </div>
                 <div className="py-4" style={{ height: '380px' }}>
                     <AnimatePresence>
                         {procesosCorriendo.length === 0 ? (
-                            <motion.div className="text-gray-500 text-3xl text-center">No hay procesos en ejecución :´(</motion.div>
+                            <motion.div className="text-gray-300 text-sm text-center" style = {{fontFamily: "'Press Start 2P', system-ui"}}>No hay procesos en ejecución</motion.div>
                         ) : (
                             procesosCorriendo.map(proceso => (
                                 <motion.div key={proceso.PID} className="mb-3 p-3 rounded-lg shadow bg-green-100 relative">
@@ -151,11 +160,11 @@ const BarraSimulatorProcess = () => {
 
             {/* === Procesos en cola === */}
             <div className="bg-white p-4 rounded-xl shadow-xl w-[400px]">
-                <h2 className="text-xl font-bold mb-2">Procesos en cola</h2>
+                <h2 className="text-xl font-bold mb-2" style={{ fontFamily: "'Coiny', sans-serif" }}>Procesos en cola</h2>
                 <div className="py-4" style={{ height: '380px' }}>
                     <AnimatePresence>
                         {procesosPendientes.length === 0 ? (
-                            <motion.div className="text-gray-500 text-3xl text-center">No hay procesos en cola :´(</motion.div>
+                            <motion.div className="text-gray-300 text-sm text-center" style = {{fontFamily: "'Press Start 2P', system-ui"}}>No hay procesos en cola</motion.div>
                         ) : (
                             procesosPendientes.map(proceso => (
                                 <motion.div key={proceso.PID} className="mb-3 p-3 rounded-lg shadow bg-gray-100 relative">
