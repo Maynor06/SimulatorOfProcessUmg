@@ -13,7 +13,7 @@ const QuequeProcess = () => {
                 <div className="bg-transparent" style={{height: '470px', overflowY: 'auto', paddingRight: '8px', paddingBottom: '12px'}}>
                     <AnimatePresence>
                         {procesos.length !== 0 ? (
-                            procesos.map((proceso, index) => (
+                            procesos.map((proceso) => (
                                 <motion.div
                                     key={proceso.PID}
                                     initial={{ opacity: 0, y: 50 }}
@@ -26,7 +26,7 @@ const QuequeProcess = () => {
                                     <h2 className="font-bold text-2xl " >{proceso.NombreProceso}</h2>
                                     <p className="text-[17px] " >Memoria requerida: {proceso.MemoriaRequired} Mb</p>
                                     <p>Duracion:  {proceso.Duration}s </p>
-                                    <button className="mt-2 px-4 py-1 bg-red-500 text-white rounded" style={{fontFamily: "'Rubik 80s Fade', system-ui"}}onClick={() => finalizarProceso(proceso.PID)}>
+                                    <button className="mt-2 px-4 py-1 bg-red-500 text-white rounded" onClick={() => finalizarProceso(proceso.PID)}>
                                         Eliminar
                                     </button>
                                 </motion.div>
