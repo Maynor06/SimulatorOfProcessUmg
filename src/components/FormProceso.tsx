@@ -154,18 +154,44 @@ const FormProceso = () => {
                     value={formData.tiempo_Entrada === 0 ? '' : formData.tiempo_Entrada}
                     name='tiempo_Entrada'
                     onChange={handleChange}
-                    placeholder="Tiempo de entrada (entero)"
+                    placeholder="Tiempo de entrada (s)"
                     />
 
-                    <label htmlFor="Algoritmo" style={{ display: 'block', marginTop: '8px' }}>
+
+                    <label
+                    htmlFor="Algoritmo"
+                    style={{
+                        display: 'block',
+                        marginTop: '12px',
+                        marginBottom: '4px',
+                        fontWeight: '600',
+                        fontSize: '1rem',
+                        color: '#333',
+                        letterSpacing: '0.5px'
+                    }}
+                    >
                     Algoritmo de planificación
                     </label>
+
+
                     <select
                     id="Algoritmo"
                     name="Algoritmo"
-                    className="shadow-"
                     value={formData.Algoritmo}
                     onChange={handleChange}
+                    style={{
+                        width: '100%',
+                        padding: '8px 12px',
+                        marginTop: '4px',
+                        marginBottom: '12px',
+                        borderRadius: '6px',
+                        border: '1px solid #ccc',
+                        boxShadow: '0 2px 4px rgba(0,0,0,0.1)',
+                        fontSize: '1rem',
+                        color: '#333',
+                        backgroundColor: '#fff',
+                        cursor: 'pointer'
+                    }}
                     >
                     <option value="">-- Selecciona Algoritmo --</option>
                     <option value="FCFS">FCFS</option>
@@ -173,6 +199,7 @@ const FormProceso = () => {
                     <option value="SRTF">SRTF</option>
                     <option value="RoundRobin">Round Robin</option>
                     </select>
+
 
 
                     {formData.Algoritmo === 'RoundRobin' && (
