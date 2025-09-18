@@ -63,6 +63,13 @@ const FormProceso = () => {
             return;
         }
 
+        // (opcional) validar tiempo_Entrada no negativo
+        if (formData.tiempo_Entrada < 1) {
+        setErrorMessage('Tiempo de entrada no puede ser negativo.');
+        setShowModal(true);
+        return;
+        }
+
         // validar algoritmo
         if (!formData.Algoritmo) {
         setErrorMessage('Debe seleccionar un algoritmo de planificación.');
@@ -71,18 +78,13 @@ const FormProceso = () => {
         }
 
         // si RoundRobin validar Quantum
-        if (formData.Algoritmo === 'RoundRobin' && formData.Quantum <= 0) {
+        if (formData.Algoritmo === 'RoundRobin' && formData.Quantum <= 1) {
         setErrorMessage('Ingrese un quantum válido (mayor a 0) para Round Robin.');
         setShowModal(true);
         return;
         }
 
-        // (opcional) validar tiempo_Entrada no negativo
-        if (formData.tiempo_Entrada < 0) {
-        setErrorMessage('Tiempo de entrada no puede ser negativo.');
-        setShowModal(true);
-        return;
-        }
+
 
 
         const newProceso = {
