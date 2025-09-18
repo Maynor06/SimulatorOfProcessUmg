@@ -8,15 +8,18 @@ const FormProceso = () => {
     const [formData, setFormData] = useState({
         NombreProceso: '',
         MemoriaRequired: 0,
-        Duration: 0
+        Duration: 0,
+        tiempo_Entrada: 0,
+        Algoritmo: '',
+         Quantum: 0
     });
 
     const [showModal, setShowModal] = useState(false);
     const [errorMessage, setErrorMessage] = useState('');
 
-    const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLSelectElement> ) => {
         const { name, value } = event.target;
-        const valorParsed = name === "MemoriaRequired" || name === "Duration" ? parseInt(value) || 0 : value;
+        const valorParsed = name === "MemoriaRequired" || name === "Duration" || name == 'quantum' || name === 'tiempo_Entrada' ? parseInt(value) || 0 : value;
         setFormData({ ...formData, [name]: valorParsed });
     };
 
@@ -60,11 +63,34 @@ const FormProceso = () => {
             return;
         }
 
+        // validar algoritmo
+        if (!formData.Algoritmo) {
+        setErrorMessage('Debe seleccionar un algoritmo de planificación.');
+        setShowModal(true);
+        return;
+        }
+
+        // si RoundRobin validar Quantum
+        if (formData.Algoritmo === 'RoundRobin' && formData.Quantum <= 0) {
+        setErrorMessage('Ingrese un quantum válido (mayor a 0) para Round Robin.');
+        setShowModal(true);
+        return;
+        }
+
+        // (opcional) validar tiempo_Entrada no negativo
+        if (formData.tiempo_Entrada < 0) {
+        setErrorMessage('Tiempo de entrada no puede ser negativo.');
+        setShowModal(true);
+        return;
+        }
+
+
         const newProceso = {
             PID: Date.now(),
             ...formData,
             // si estaba vacío, se genera automáticamente
-            NombreProceso: nombreFinal 
+            NombreProceso: nombreFinal,
+            Algoritmo: formData.Algoritmo as "" | "FCFS" | "SJF" | "SRTF" | "RoundRobin"
         };
 
         agregarProceso(newProceso);
@@ -78,7 +104,10 @@ const FormProceso = () => {
         setFormData({
             NombreProceso: '',
             MemoriaRequired: 0,
-            Duration: 0
+            Duration: 0,
+            tiempo_Entrada: 0,
+            Algoritmo: '',
+            Quantum: 0
         });
     };
 
@@ -118,6 +147,48 @@ const FormProceso = () => {
                         onChange={handleChange}
                         placeholder="Duración (s)"
                     />
+                    
+                    <input
+                    type="number"
+                    className='shadow-'
+                    value={formData.tiempo_Entrada === 0 ? '' : formData.tiempo_Entrada}
+                    name='tiempo_Entrada'
+                    onChange={handleChange}
+                    placeholder="Tiempo de entrada (entero)"
+                    />
+
+                    <label htmlFor="Algoritmo" style={{ display: 'block', marginTop: '8px' }}>
+                    Algoritmo de planificación
+                    </label>
+                    <select
+                    id="Algoritmo"
+                    name="Algoritmo"
+                    className="shadow-"
+                    value={formData.Algoritmo}
+                    onChange={handleChange}
+                    >
+                    <option value="">-- Selecciona Algoritmo --</option>
+                    <option value="FCFS">FCFS</option>
+                    <option value="SJF">SJF</option>
+                    <option value="SRTF">SRTF</option>
+                    <option value="RoundRobin">Round Robin</option>
+                    </select>
+
+
+                    {formData.Algoritmo === 'RoundRobin' && (
+                    <input
+                        type="number"
+                        className='shadow-'
+                        name="Quantum"
+                        value={formData.Quantum === 0 ? '' : formData.Quantum}
+                        onChange={handleChange}
+                        placeholder="Quantum (s)"
+                        style={{ marginTop: '8px' }}
+                    />
+                    )}
+
+
+
                     <button type="submit" style={{ fontFamily: "'Coiny', system-ui" }}>Crear Proceso</button>
                 </form>
             </div>

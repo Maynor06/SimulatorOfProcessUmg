@@ -5,6 +5,9 @@ export interface Proceso {
     NombreProceso: string; 
     MemoriaRequired: number; 
     Duration: number;
+    tiempo_Entrada: number;
+    Algoritmo: 'FCFS' | 'SJF' | 'SRTF' | 'RoundRobin' | '';
+    Quantum: number;
 }
 
 interface PrecesoContextType {
@@ -15,6 +18,7 @@ interface PrecesoContextType {
 }
 
 const ProcesoContext = createContext<PrecesoContextType | undefined>(undefined);
+
 
 export const useProcesoContext = () => {
     const context = useContext(ProcesoContext);
