@@ -10,14 +10,15 @@ const Home = () => {
     const navigate = useNavigate()
     const [showModal, setShowModal] = useState(false);
     const [errorMessage, setErrorMessage] = useState("")
+    
 
-    const { procesos } = useProcesoContext();
+    const { procesos, algoritmo, setAlgoritmo } = useProcesoContext();
 
     const irASimulator = () => {
-        if(procesos.length === 0){
+        if (procesos.length === 0) {
             setErrorMessage('No tienes procesos creados :´(');
             setShowModal(true);
-            return;               
+            return;
         }
         navigate("/simulador")
     }
@@ -36,6 +37,24 @@ const Home = () => {
                             <button onClick={irASimulator} className="bg-[#d7c8ff] transition-all duration-[2000ms] hover:scale-110 hover:bg-blue-200 h-12 w-56 rounded-2xl text-xl " style={{ fontFamily: "'Coiny', system-ui" }}>
                                 Iniciar Simulación
                             </button>
+                        </div>
+
+                        <div className="flex flex-col gap-4 items-center mt-6">
+                            <label className="font-bold text-lg" style={{ fontFamily: "'Coiny', system-ui" }}>
+                                Algoritmo de planificación
+                            </label>
+
+                            <select
+                                value={algoritmo}
+                                onChange={(e) => setAlgoritmo(e.target.value as any)}
+                                className="p-2 rounded-lg border border-violet-300 shadow-md">
+
+                                <option value="FCFS">First Come First Served (FCFS)</option>
+                                <option value="SJF">Shortest Job First (SJF)</option>
+                                <option value="PRIORIDAD">Por Prioridad</option>
+                                <option value="ROUND_ROBIN">Round Robin</option>
+                            </select>
+
                         </div>
                         <QuequeProcess />
                     </div>

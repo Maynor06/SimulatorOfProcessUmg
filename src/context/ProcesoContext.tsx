@@ -1,4 +1,5 @@
 import { createContext, useContext, useState, type ReactNode } from "react";
+export type AlgoritmoPlanificacion = "FCFS" | "SJF" | "PRIORIDAD" | "ROUND_ROBIN";
 
 export interface Proceso {
     PID: number; 
@@ -12,6 +13,8 @@ interface PrecesoContextType {
     agregarProceso: (proceso: Proceso) => void;
     finalizarProceso: (pid: number) => void;
     memoriaTotal: number;
+    algoritmo: AlgoritmoPlanificacion;        //Se agrego nuevo estado para el algoritmo de planificación
+    setAlgoritmo: (alg: AlgoritmoPlanificacion) => void;
 }
 
 const ProcesoContext = createContext<PrecesoContextType | undefined>(undefined);
@@ -31,6 +34,7 @@ interface ProcesoProviderProps {
 export const ProcesoProvider = ({children}: ProcesoProviderProps) => {
     const MEMORIA_TOTAL = 1024; // 1GB en MB
     const [procesos, setProcesos] = useState<Proceso[]>([]);
+    const [algoritmo, setAlgoritmo] = useState<AlgoritmoPlanificacion>("FCFS"); // por default
 
     const agregarProceso = (proceso: Proceso) => {
         setProcesos(prev => [...prev, proceso])
@@ -41,7 +45,9 @@ export const ProcesoProvider = ({children}: ProcesoProviderProps) => {
     }
 
     return (
-        <ProcesoContext.Provider value={{ procesos, agregarProceso, finalizarProceso, memoriaTotal: MEMORIA_TOTAL }} >
+        <ProcesoContext.Provider 
+            value={{ procesos, agregarProceso, finalizarProceso, memoriaTotal: MEMORIA_TOTAL, algoritmo, setAlgoritmo }}
+        >
             {children}
         </ProcesoContext.Provider>
     )
